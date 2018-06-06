@@ -1,4 +1,4 @@
-import request from 'request'; // var request = require('request');
+import request from 'browser-request'; // var request = require('browser-request');
 
 // Output
 var weather1 = document.getElementById("weather1");
