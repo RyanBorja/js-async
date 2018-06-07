@@ -19,8 +19,20 @@ request(url1, function(error, response, body) {
   }
   else {
 
-    console.log(response);
-    console.log(body);
+    var results = JSON.parse(body);
+    weather1.innerHTML = "It is " + results.main.temp + " degress Kelvin in " + results.name + ".";
+
+    var url2 = "http://api.openweathermap.org/data/2.5/weather?zip=90210&us&appid=ef6a94dab254dc386b931af4d5ca58c7";
+    if (results.main.temp > 300) {
+      url2 = "http://api.openweathermap.org/data/2.5/weather?zip=99723&us&appid=ef6a94dab254dc386b931af4d5ca58c7";
+    }
+
+    request(url2, function(error2, response2, body2) {
+
+      var results2 = JSON.parse(body2);
+      weather2.innerHTML = "It is " + results2.main.temp + " degress Kelvin in " + results.name + ".";
+
+    });
 
   }
 
