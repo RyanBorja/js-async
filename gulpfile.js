@@ -11,7 +11,7 @@ var source = require("vinyl-source-stream");
 // });
 
 gulp.task("build", function () {
-  return browserify("callback.js")
+  return browserify("promise.js")
   	.transform(babelify)
   	.bundle()
     .pipe(source('bundle.js'))
@@ -19,7 +19,7 @@ gulp.task("build", function () {
 });
 
 gulp.task('watch', ['build'], function() {
-	gulp.watch('callback.js', ['build']);
+	gulp.watch('promise.js', ['build']);
 })
 
 gulp.task('default', ['watch']);
